@@ -5,20 +5,19 @@ import ocLazyLoad from 'oclazyload'
 import Pages from './pages/pages';
 import AppComponent from './app.component';
 
-import 'normalize.css';
+import material from 'angular-material';
+import 'angular-material/angular-material.min.css';
 
-import 'bootstrap/dist/css/bootstrap.css';
 
 angular.module('app', [
     uiRouter,
     ocLazyLoad,
-
     Pages
   ])
   .config(($locationProvider, $stateProvider, $urlRouterProvider) => {
     "ngInject";
-    
-    $locationProvider.html5Mode(true).hashPrefix('!');
+
+    //$locationProvider.html5Mode(true).hashPrefix('!');
 
     $stateProvider
       .state('app', {
@@ -45,7 +44,7 @@ angular.module('app', [
         resolve: {
           lazyLoad($q, $ocLazyLoad) {
             "ngInject";
-            
+
             let deferred = $q.defer();
 
             //
@@ -63,7 +62,7 @@ angular.module('app', [
               $ocLazyLoad.load({
                   name: module.default.name
               });
-              
+
               deferred.resolve(module);
             });
 
