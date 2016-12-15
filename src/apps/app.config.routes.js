@@ -1,20 +1,4 @@
-import angular from 'angular';
-import uiRouter from 'angular-ui-router';
-import ocLazyLoad from 'oclazyload'
-
-import Pages from './pages/pages';
-import AppComponent from './app.component';
-
-import material from 'angular-material';
-import 'angular-material/angular-material.min.css';
-
-
-angular.module('app', [
-    uiRouter,
-    ocLazyLoad,
-    Pages
-  ])
-  .config(($locationProvider, $stateProvider, $urlRouterProvider) => {
+export default ($locationProvider, $stateProvider, $urlRouterProvider) => {
     "ngInject";
 
     //$locationProvider.html5Mode(true).hashPrefix('!');
@@ -73,6 +57,4 @@ angular.module('app', [
 
     $urlRouterProvider.otherwise('/app/non-lazy');
 
-  })
-
-  .component('app', AppComponent);
+  };
